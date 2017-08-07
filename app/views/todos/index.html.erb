@@ -1,0 +1,26 @@
+
+<table>
+  <tr>
+    
+    <th> Name</th>
+    <th> Description</th>
+    <th> ID</th>
+    <th> Edit task </th>
+    <th> View task </th>
+
+
+  </tr>
+  <% @nameitanything.each do |tdi| %>
+
+  <tr>
+    <td> <%= tdi.name %></td>
+    <td> <%= tdi.description %></td>
+    <td> <%= tdi.id %></td>
+    <td> <%= link_to "Edit", edit_todo_path(tdi) %></td>
+    <td> <%= link_to "Show", todo_path(tdi) %></td>
+
+  </tr>
+  <% end %>
+</table>
+
+

@@ -1,0 +1,9 @@
+To do number: <%= @todo.id %> <br>
+Task name: <%= @todo.name %><br>
+Task detail: <%= @todo.description %>
+<br>
+<br>
+
+    <td> <%= link_to "Edit this todo", edit_todo_path(@todo) %></td>
+    <td> <%= link_to "See all Todos", todos_path %></td>
+
