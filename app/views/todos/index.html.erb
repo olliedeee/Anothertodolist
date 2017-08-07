@@ -10,14 +10,16 @@
 
 
   </tr>
-  <% @nameitanything.each do |tdi| %>
+  <% @nameitanything.each do |also_can_be_named_anything| %>
 
   <tr>
-    <td> <%= tdi.name %></td>
-    <td> <%= tdi.description %></td>
-    <td> <%= tdi.id %></td>
-    <td> <%= link_to "Edit", edit_todo_path(tdi) %></td>
-    <td> <%= link_to "Show", todo_path(tdi) %></td>
+    <td> <%= also_can_be_named_anything.name %></td>
+    <td> <%= also_can_be_named_anything.description %></td>
+    <td> <%= also_can_be_named_anything.id %></td>
+    <td> <%= link_to "Edit", edit_todo_path(also_can_be_named_anything) %></td>
+    <td> <%= link_to "Show", todo_path(also_can_be_named_anything) %></td>
+    <td> <%= link_to "Delete", todo_path(also_can_be_named_anything), method: :delete, data: {confirm: "are you sure?"} %> </td> 
+
 
   </tr>
   <% end %>
