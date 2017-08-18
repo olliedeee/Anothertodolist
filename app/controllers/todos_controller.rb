@@ -1,7 +1,6 @@
 class TodosController < ApplicationController
   
-  http_basic_authenticate_with name: "123", password: "123", except: [:index, :show]
-  
+
   before_action :set_todo, only: [:edit, :update, :show, :destroy]
   
   
