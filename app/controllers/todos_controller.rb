@@ -1,5 +1,9 @@
 class TodosController < ApplicationController
   
+  http_basic_authenticate_with name: "123", password: "123", except: [:index, :show]
+  
+  before_action :set_todo, only: [:edit, :update, :show, :destroy]
+  
   
   def new
     @todo = Todo.new
@@ -58,7 +62,12 @@ class TodosController < ApplicationController
   end
   
   private
+  
+  def set_todo
+   @todo = Todo.find(params[:id])
 
+  end
+  
   def todo_params
     params.require(:todo).permit(:name, :description)
   end

@@ -1,9 +1,31 @@
-To do number: <%= @todo.id %> <br>
-Task name: <%= @todo.name %><br>
-Task detail: <%= @todo.description %>
+<h2>Task name: <%= @todo.name %><br></h2>
+
+
+<b>To do number:</b> <%= @todo.id %> <br>
+<b>Task detail:</b> <%= @todo.description %>
 <br>
 <br>
 
-    <td> <%= link_to "Edit this todo", edit_todo_path(@todo) %></td>
+<hr><br>
+
+<h3> Comments</h3>
+<% if @todo.comments.any? %>
+<%= render @todo.comments %>
+    
+<% else %>
+    <p> This todo item has no comments.</p>
+<% end %>
+
+
+
+
+
+<hr><br>
+<h4>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+<hr>
+<br>
+    <td> <%= link_to "Edit this todo", edit_todo_path(@todo) %></td> | 
     <td> <%= link_to "See all Todos", todos_path %></td>
 
