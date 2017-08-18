@@ -19,3 +19,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#ignore this file
+~/rails_projects/todoapp/config/initializers/setup_mail.rb
