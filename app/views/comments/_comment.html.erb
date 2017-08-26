@@ -2,13 +2,9 @@
 
 <p><%= time_ago_in_words(comment.created_at) %> ago. 
 
-  <% if can? :destroy, comment %>
     <%= link_to "Delete this comment", [comment.todo, comment], method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-danger btn-xs round" %>
     
-  <% end %>
-  <% if can? :update, comment %>
     <%= link_to "Edit comment", edit_todo_comment_path(comment.todo, comment), class: "btn btn-info btn-xs round" %>
-  <% end %>
 
 </p>
 <hr>

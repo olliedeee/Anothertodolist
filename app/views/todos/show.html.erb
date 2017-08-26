@@ -7,13 +7,9 @@
 <br><br>
 <br>
 <br>
- <% if can? :update, @todo %>
     <td> <%= link_to "Edit this todo", edit_todo_path(@todo), class: "btn btn-info btn-xs round" %></td>   | 
-    <% end %>
-     <% if can? :destroy, @todo %>
     <%= link_to "Destroy this todo", todo_path(@todo), method: :delete, data: {confirm: "are you sure?"},
     class: "btn btn-danger btn-xs round" %> | 
-    <% end %>
     <td> <%= link_to "See all Todos", todos_path, class: "btn btn-success btn-xs round" %></td>
 <hr>
 <h3> Comments</h3>

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :todos  do
     resources :comments
   end
+  resources :users
   
 end

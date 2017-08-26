@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row headings"><b>      
+        <div class="col-md-1">ID </div>
+        <div class="col-md-3">Email </div>
+        <div class="col-md-1">Is admin? </div>
+        <div class="col-md-2">Last login </div>
+        <div class="col-md-2">Confirmed? </div>
+        <div class="col-md-2">Edit/Delete </div>
+        </b>  
+      </div>
+      
+      <% @users.each do |user| %>
+        <div class="row headings">
+        <div class="col-md-1"><%=  user.id %> </div>
+        <div class="col-md-3"><%=  user.email %> </div>
+        <div class="col-md-1"><%=  user.admin ? "Admin" : "User" %> </div>
+        <div class="col-md-2"><%=  user.last_sign_in_at %> </div>
+        <div class="col-md-2"><%=  user.confirmed_at? %> </div>
+
+        <div class="col-md-2"><%= link_to 'Show', user %> | <%= link_to 'Edit', edit_user_path(user) %> |
+        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+     
+<%= link_to 'New User', new_user_path %>
