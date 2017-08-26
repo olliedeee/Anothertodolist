@@ -2,16 +2,13 @@ class TodosController < ApplicationController
   
 
   before_action :set_todo, only: [:edit, :update, :show, :destroy]
-  
-  
+
   def new
     @todo = Todo.new
   end
   
   def index
     @nameitanything = Todo.all
-    
-    
   end
   
   def show
@@ -20,6 +17,7 @@ class TodosController < ApplicationController
   
   def create
     @todo = Todo.new(todo_params)
+    @todo.user = current_user
     if  @todo.save
       flash[:notice] = "todo created successfully!"
       redirect_to todo_path(@todo)
@@ -39,7 +37,6 @@ class TodosController < ApplicationController
     else
       render 'edit'    
     end
-    
   end
   
   def about
@@ -49,11 +46,12 @@ class TodosController < ApplicationController
   end
   
   def edit
+    authorize! :update, @todo
       @todo = Todo.find(params[:id])
-
   end
   
   def destroy
+  authorize! :destroy, @todo
   @todo = Todo.find(params[:id])
   @todo.destroy
   flash[:notice] = "Todo item deleted successfully"
